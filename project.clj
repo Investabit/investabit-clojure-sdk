@@ -1,4 +1,4 @@
-(defproject investabit-api ""
+(defproject investabit ""
   :description "The Investabit API allows for access to all of the public facing services provided, including market data and forecasts.
 
 ## General Overview

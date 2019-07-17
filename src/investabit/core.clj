@@ -1,4 +1,4 @@
-(ns investabit-api.core
+(ns investabit.core
   (:require [cheshire.core :refer [generate-string parse-string]]
             [clojure.string :as str]
             [clj-http.client :as client])

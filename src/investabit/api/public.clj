@@ -1,5 +1,5 @@
-(ns investabit-api.api.public
-  (:require [investabit-api.core :refer [call-api check-required-params with-collection-format]])
+(ns investabit.api.public
+  (:require [investabit.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
 (defn v1-public-current-symbol-get-with-http-info
