@@ -22,12 +22,12 @@
   [symbol ]
   (:data (v1-public-current-symbol-get-with-http-info symbol)))
 
-(defn v1-public-price-history-symbol-get-with-http-info
-  "Price History
+(defn v1-public-price-change-symbol-get-with-http-info
+  "Price Change
   "
   [symbol ]
   (check-required-params symbol)
-  (call-api "/v1/public/price-history/{symbol}" :get
+  (call-api "/v1/public/price-change/{symbol}" :get
             {:path-params   {"symbol" symbol }
              :header-params {}
              :query-params  {}
@@ -36,11 +36,31 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn v1-public-price-history-symbol-get
-  "Price History
+(defn v1-public-price-change-symbol-get
+  "Price Change
   "
   [symbol ]
-  (:data (v1-public-price-history-symbol-get-with-http-info symbol)))
+  (:data (v1-public-price-change-symbol-get-with-http-info symbol)))
+
+(defn v1-public-price-history-symbol-period-interval-get-with-http-info
+  "Price History
+  "
+  [symbol period interval ]
+  (check-required-params symbol period interval)
+  (call-api "/v1/public/price-history/{symbol}/{period}/{interval}" :get
+            {:path-params   {"symbol" symbol "period" period "interval" interval }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn v1-public-price-history-symbol-period-interval-get
+  "Price History
+  "
+  [symbol period interval ]
+  (:data (v1-public-price-history-symbol-period-interval-get-with-http-info symbol period interval)))
 
 (defn v1-public-symbols-get-with-http-info
   "Symbols
