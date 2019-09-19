@@ -2,26 +2,6 @@
   (:require [investabit.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
-(defn v1-public-current-symbol-get-with-http-info
-  "Current
-  "
-  [symbol ]
-  (check-required-params symbol)
-  (call-api "/v1/public/current/{symbol}" :get
-            {:path-params   {"symbol" symbol }
-             :header-params {}
-             :query-params  {}
-             :form-params   {}
-             :content-types []
-             :accepts       ["application/json"]
-             :auth-names    []}))
-
-(defn v1-public-current-symbol-get
-  "Current
-  "
-  [symbol ]
-  (:data (v1-public-current-symbol-get-with-http-info symbol)))
-
 (defn v1-public-price-change-symbol-get-with-http-info
   "Price Change
   "
@@ -41,6 +21,26 @@
   "
   [symbol ]
   (:data (v1-public-price-change-symbol-get-with-http-info symbol)))
+
+(defn v1-public-price-current-symbol-get-with-http-info
+  "Price Current
+  "
+  [symbol ]
+  (check-required-params symbol)
+  (call-api "/v1/public/price-current/{symbol}" :get
+            {:path-params   {"symbol" symbol }
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn v1-public-price-current-symbol-get
+  "Price Current
+  "
+  [symbol ]
+  (:data (v1-public-price-current-symbol-get-with-http-info symbol)))
 
 (defn v1-public-price-history-symbol-period-interval-get-with-http-info
   "Price History
