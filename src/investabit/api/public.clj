@@ -101,3 +101,25 @@
   [symbol ]
   (:data (v1-public-trend-symbol-get-with-http-info symbol)))
 
+(defn v1-public-waiting-list-post-with-http-info
+  "Waiting List
+  Subscribe a user to the waiting list, `name` is not required."
+  ([] (v1-public-waiting-list-post-with-http-info nil))
+  ([{:keys [body ]}]
+   (call-api "/v1/public/waiting-list" :post
+             {:path-params   {}
+              :header-params {}
+              :query-params  {}
+              :form-params   {}
+              :body-param    body
+              :content-types []
+              :accepts       ["application/json"]
+              :auth-names    []})))
+
+(defn v1-public-waiting-list-post
+  "Waiting List
+  Subscribe a user to the waiting list, `name` is not required."
+  ([] (v1-public-waiting-list-post nil))
+  ([optional-params]
+   (:data (v1-public-waiting-list-post-with-http-info optional-params))))
+
