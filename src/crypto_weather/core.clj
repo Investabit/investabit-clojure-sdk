@@ -1,4 +1,4 @@
-(ns investabit.core
+(ns crypto-weather.core
   (:require [cheshire.core :refer [generate-string parse-string]]
             [clojure.string :as str]
             [clj-http.client :as client])
@@ -8,15 +8,15 @@
            (java.text SimpleDateFormat)))
 
 (def auth-definitions
-  {})
+  {"oauth2" {:type :oauth2}})
 
 (def default-api-context
   "Default API context."
-  {:base-url        "https://api.investabit.com"
+  {:base-url        "https://api.cryptoweather.ai"
    :date-format     "yyyy-MM-dd"
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
    :debug           false
-   :auths           {}})
+   :auths           {"oauth2" nil}})
 
 (def ^:dynamic *api-context*
   "Dynamic API context to be applied in API calls."

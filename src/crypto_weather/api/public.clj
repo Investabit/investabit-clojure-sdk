@@ -1,5 +1,5 @@
-(ns investabit.api.public
-  (:require [investabit.core :refer [call-api check-required-params with-collection-format]])
+(ns crypto-weather.api.public
+  (:require [crypto-weather.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
 (defn v1-public-price-change-symbol-get-with-http-info
@@ -83,7 +83,19 @@
 
 (defn v1-public-trend-symbol-get-with-http-info
   "Trend
-  "
+  The trend response contains a collection of forecasts for different intervals with the following attributes.
+
++ `time_start` start time of the period the forecast is applicable for
+
++ `time_end` end time of the period the forecast is applicable for
+
++ `interval` interval in hours that the forecast is applicable for
+
++ `weighted_price` forecasted weighted price during the period
+
++ `change_pct` percent change in price for forecasted weighted_price relative to current price
+
++ `change_usd` dollar change in price for forecasted weighted_price relative to current price"
   [symbol ]
   (check-required-params symbol)
   (call-api "/v1/public/trend/{symbol}" :get
@@ -97,29 +109,19 @@
 
 (defn v1-public-trend-symbol-get
   "Trend
-  "
+  The trend response contains a collection of forecasts for different intervals with the following attributes.
+
++ `time_start` start time of the period the forecast is applicable for
+
++ `time_end` end time of the period the forecast is applicable for
+
++ `interval` interval in hours that the forecast is applicable for
+
++ `weighted_price` forecasted weighted price during the period
+
++ `change_pct` percent change in price for forecasted weighted_price relative to current price
+
++ `change_usd` dollar change in price for forecasted weighted_price relative to current price"
   [symbol ]
   (:data (v1-public-trend-symbol-get-with-http-info symbol)))
-
-(defn v1-public-waiting-list-post-with-http-info
-  "Waiting List
-  Subscribe a user to the waiting list, `name` is not required."
-  ([] (v1-public-waiting-list-post-with-http-info nil))
-  ([{:keys [body ]}]
-   (call-api "/v1/public/waiting-list" :post
-             {:path-params   {}
-              :header-params {}
-              :query-params  {}
-              :form-params   {}
-              :body-param    body
-              :content-types []
-              :accepts       ["application/json"]
-              :auth-names    []})))
-
-(defn v1-public-waiting-list-post
-  "Waiting List
-  Subscribe a user to the waiting list, `name` is not required."
-  ([] (v1-public-waiting-list-post nil))
-  ([optional-params]
-   (:data (v1-public-waiting-list-post-with-http-info optional-params))))
 
