@@ -62,6 +62,25 @@
   [symbol period interval ]
   (:data (v1-public-price-history-symbol-period-interval-get-with-http-info symbol period interval)))
 
+(defn v1-public-summary-get-with-http-info
+  "Summary
+  "
+  []
+  (call-api "/v1/public/summary" :get
+            {:path-params   {}
+             :header-params {}
+             :query-params  {}
+             :form-params   {}
+             :content-types []
+             :accepts       ["application/json"]
+             :auth-names    []}))
+
+(defn v1-public-summary-get
+  "Summary
+  "
+  []
+  (:data (v1-public-summary-get-with-http-info)))
+
 (defn v1-public-symbols-get-with-http-info
   "Symbols
   "
