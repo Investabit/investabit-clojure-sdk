@@ -40,6 +40,28 @@
   ([symbol interval period optional-params]
    (:data (v1-private-accuracy-symbol-interval-period-get-with-http-info symbol interval period optional-params))))
 
+(defn v1-private-forecast-accuracy-symbol-interval-period-get-with-http-info
+  "Forecast Accuracy
+  "
+  ([symbol interval period ] (v1-private-forecast-accuracy-symbol-interval-period-get-with-http-info symbol interval period nil))
+  ([symbol interval period {:keys [cookie x-csrf ]}]
+   (check-required-params symbol interval period)
+   (call-api "/v1/private/forecast-accuracy/{symbol}/{interval}/{period}" :get
+             {:path-params   {"symbol" symbol "interval" interval "period" period }
+              :header-params {"Cookie" cookie "X-csrf" x-csrf }
+              :query-params  {}
+              :form-params   {}
+              :content-types []
+              :accepts       ["application/json"]
+              :auth-names    ["oauth2"]})))
+
+(defn v1-private-forecast-accuracy-symbol-interval-period-get
+  "Forecast Accuracy
+  "
+  ([symbol interval period ] (v1-private-forecast-accuracy-symbol-interval-period-get symbol interval period nil))
+  ([symbol interval period optional-params]
+   (:data (v1-private-forecast-accuracy-symbol-interval-period-get-with-http-info symbol interval period optional-params))))
+
 (defn v1-private-forecast-symbol-interval-get-with-http-info
   "Forecast
   The forecast response contains a sequence of forecasts at the specified intervals, with the following attributes.
